@@ -18,7 +18,7 @@
       border-radius: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-align: center;
-      max-width: 450pxllk
+      max-width: 450px;
     }
     h1 {
       color: #e63946;
@@ -38,19 +38,26 @@
   </div>
 
   <script>
-    const text = "This is a special message just for you 💌\nHappy New Year loveyy 🧡✨
+    const text = `This is a special message just for you 💌
+Happy New Year loveey ✨
+
 As this year ends, gusto ko lang sabihin na I’m really grateful na dumating ka sa buhay ko. Kahit hindi pa tayo officially, I already appreciate you more than you know. Every small conversation, every random update, every moment na nagkakausap tayo, they all mean something to me. You make my days lighter, even on days na pagod or magulo lahat.
+
 This year taught me a lot, but one of the best parts is meeting you. I may not be perfect, I may not always know the right words, but I’m sincere with what I feel. I’m not rushing anything, I just want to take things slowly and genuinely, habang mas nakikilala kita.
+
 As we enter this new year, I wish you peace, growth, and happiness. Sana matupad lahat ng goals mo, kahit yung mga hindi mo sinasabi out loud. I’ll be here, supporting you in my own little way. Kung may mga araw na pagod ka, or feeling lost, I hope you remember na may taong naniniwala sa’yo.
+
 Thank you for letting me be part of your year, even in a small way. I’m excited to see what the new year has in store for you—and hopefully, for us too.
-Happy New Year ✨
-Take care always, ok po? 🧡";
+
+Happy New Year ✨  
+Take care always, ok po? 🧡✨`;
+
     let i = 0;
     function typeWriter() {
       if (i < text.length) {
         document.getElementById("msg").textContent += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 70); // typing speed
+        setTimeout(typeWriter, 70);
       }
     }
     window.onload = typeWriter;
