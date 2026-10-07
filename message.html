@@ -1,1740 +1,1312 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+  <title>rebreb ♡</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    >
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>A Little Message 💌</title>
+    body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+      background:
+        linear-gradient(
+          135deg,
+          #4da3e8,
+          #72b9ef,
+          #4b9ddd
+        );
 
-    <style>
+      font-family: Arial, sans-serif;
+    }
 
-        /* =====================================================
-           RESET
-        ===================================================== */
 
-        * {
-            box-sizing: border-box;
-        }
+    /* =================================
+       CENTER CONTENT
+    ================================= */
 
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+    .center {
+      position: absolute;
 
-        body {
-            font-family: "DM Sans", sans-serif;
+      top: 50%;
+      left: 50%;
 
-            min-height: 100vh;
-            min-height: 100dvh;
+      transform: translate(-50%, -50%);
 
-            overflow: hidden;
+      text-align: center;
 
-            background:
-                linear-gradient(
-                    160deg,
-                    #fdf2f8,
-                    #ede9fe,
-                    #fce7f3
-                );
-        }
+      z-index: 50;
+    }
 
 
-        /* =====================================================
-           MAIN PAGE
-        ===================================================== */
+    /* MAIN TEXT */
 
-        .page {
+    .title {
+      color: white;
 
-            position: relative;
+      font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        "Lucida Handwriting",
+        cursive;
 
-            width: 100%;
+      font-size: clamp(34px, 7vw, 58px);
 
-            min-height: 100vh;
-            min-height: 100dvh;
+      font-weight: 400;
 
-            display: flex;
-            flex-direction: column;
+      letter-spacing: 3px;
 
-            align-items: center;
-            justify-content: center;
+      text-shadow:
+        0 3px 12px rgba(0,0,0,0.12);
 
-            gap: 28px;
+      animation: gentle 3s ease-in-out infinite;
+    }
 
-            padding: 24px 20px;
 
-            z-index: 10;
-        }
+    @keyframes gentle {
 
+      0%, 100% {
+        transform: translateY(0);
+      }
 
-        /* =====================================================
-           TITLE
-        ===================================================== */
+      50% {
+        transform: translateY(-4px);
+      }
 
-        .title {
+    }
 
-            margin: 0;
 
-            color: #9b4d7c;
+    /* CLICK HERE */
 
-            font-size:
-                clamp(
-                    24px,
-                    5vw,
-                    32px
-                );
+    .click-button {
 
-            font-weight: 700;
+      margin-top: 10px;
 
-            line-height: 1.2;
+      border: none;
 
-            text-align: center;
+      background: rgba(255,255,255,0.2);
 
-            letter-spacing: -0.5px;
-        }
+      color: white;
 
+      padding: 9px 22px;
 
-        .subtitle {
+      border-radius: 30px;
 
-            margin: -12px 0 0;
+      font-size: 13px;
 
-            color: #a0617e;
+      letter-spacing: 1px;
 
-            font-size: 14px;
+      cursor: pointer;
 
-            line-height: 1.5;
+      backdrop-filter: blur(5px);
 
-            text-align: center;
+      transition: 0.3s;
 
-            opacity: 0.85;
-        }
+      box-shadow:
+        0 4px 15px rgba(0,0,0,0.08);
+    }
 
 
-        /* =====================================================
-           FLOATING HEARTS
-        ===================================================== */
+    .click-button:hover {
 
-        .heart {
+      background: rgba(255,255,255,0.35);
 
-            position: absolute;
+      transform: scale(1.06);
+    }
 
-            font-size: 20px;
 
-            opacity: 0.4;
+    /* =================================
+       FLOWERS
+    ================================= */
 
-            pointer-events: none;
+    .flower {
 
-            user-select: none;
+      position: absolute;
 
-            animation:
-                floating
-                6s
-                ease-in-out
-                infinite;
-        }
+      width: 45px;
+      height: 45px;
 
+      z-index: 5;
 
-        @keyframes floating {
+      animation:
+        floating 4s ease-in-out infinite;
+    }
 
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
 
-            50% {
-                transform:
-                    translateY(-20px)
-                    rotate(10deg);
-            }
-        }
+    .petal {
 
+      position: absolute;
 
-        /* =====================================================
-           SPARKLES
-        ===================================================== */
+      width: 18px;
+      height: 27px;
 
-        .sparkle {
+      left: 14px;
+      top: 0;
 
-            position: absolute;
+      border-radius: 50%;
 
-            width: 6px;
-            height: 6px;
+      transform-origin:
+        50% 100%;
+    }
 
-            background: #ffd6e8;
 
-            border-radius: 50%;
+    .p1 {
+      transform:
+        rotate(0deg)
+        translateY(-7px);
+    }
 
-            opacity: 0.6;
+    .p2 {
+      transform:
+        rotate(72deg)
+        translateY(-7px);
+    }
 
-            pointer-events: none;
+    .p3 {
+      transform:
+        rotate(144deg)
+        translateY(-7px);
+    }
 
-            animation:
-                sparkleAnimation
-                3s
-                ease-in-out
-                infinite;
-        }
+    .p4 {
+      transform:
+        rotate(216deg)
+        translateY(-7px);
+    }
 
+    .p5 {
+      transform:
+        rotate(288deg)
+        translateY(-7px);
+    }
 
-        @keyframes sparkleAnimation {
 
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scale(0.8);
-            }
+    .flower-center {
 
-            50% {
-                opacity: 0.9;
-                transform: scale(1.3);
-            }
-        }
+      position: absolute;
 
+      width: 13px;
+      height: 13px;
 
-        /* =====================================================
-           ENVELOPE WRAPPER
-        ===================================================== */
+      top: 16px;
+      left: 16px;
 
-        .envelope-wrapper {
+      border-radius: 50%;
 
-            position: relative;
+      background: #ffd84d;
 
-            width: 280px;
-            height: 190px;
+      z-index: 3;
+    }
 
-            perspective: 900px;
 
-            flex-shrink: 0;
-        }
+    /* FLOWER COLORS */
 
+    .pink .petal {
+      background: #ff91b5;
+    }
 
-        /* =====================================================
-           ENVELOPE BODY
-        ===================================================== */
+    .yellow .petal {
+      background: #ffe27a;
+    }
 
-        .envelope {
+    .purple .petal {
+      background: #c8a6ff;
+    }
 
-            position: relative;
+    .white .petal {
+      background: #ffffff;
+    }
 
-            width: 280px;
-            height: 180px;
+    .orange .petal {
+      background: #ffb36b;
+    }
 
-            background: #fff5f5;
+    .blue .petal {
+      background: #8ee0ff;
+    }
 
-            border-radius: 12px;
 
-            box-shadow:
-                0 12px 35px
-                rgba(
-                    200,
-                    150,
-                    180,
-                    0.28
-                );
+    @keyframes floating {
 
-            overflow: visible;
-        }
+      0%, 100% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+      }
 
+      50% {
+        transform:
+          translateY(-15px)
+          rotate(10deg);
+      }
 
-        /* =====================================================
-           ENVELOPE FRONT
-        ===================================================== */
+    }
 
-        .envelope-front {
 
-            position: absolute;
+    /* =================================
+       FLOWER POSITIONS
+    ================================= */
 
-            left: 0;
-            right: 0;
-            bottom: 0;
+    .f1 {
+      top: 8%;
+      left: 8%;
+    }
 
-            width: 100%;
-            height: 105px;
+    .f2 {
+      top: 18%;
+      right: 10%;
+    }
 
-            background: #ffeef3;
+    .f3 {
+      top: 42%;
+      left: 4%;
+    }
 
-            clip-path:
-                polygon(
-                    0 0,
-                    50% 68%,
-                    100% 0,
-                    100% 100%,
-                    0 100%
-                );
+    .f4 {
+      top: 48%;
+      right: 5%;
+    }
 
-            border-radius:
-                0 0 12px 12px;
+    .f5 {
+      top: 7%;
+      left: 45%;
+    }
 
-            z-index: 4;
+    .f6 {
+      bottom: 18%;
+      left: 13%;
+    }
 
-            pointer-events: none;
-        }
+    .f7 {
+      bottom: 25%;
+      right: 13%;
+    }
 
+    .f8 {
+      bottom: 8%;
+      left: 48%;
+    }
 
-        /* =====================================================
-           ENVELOPE FLAP
-        ===================================================== */
 
-        .envelope-flap {
+    /* =================================
+       STANDING FLOWERS
+    ================================= */
 
-            position: absolute;
+    .standing {
 
-            top: 0;
-            left: 0;
+      position: absolute;
 
-            width: 100%;
-            height: 94px;
+      bottom: -5px;
 
-            background: #ffe0ea;
+      width: 70px;
+      height: 190px;
 
-            clip-path:
-                polygon(
-                    0 0,
-                    50% 100%,
-                    100% 0
-                );
+      z-index: 8;
+    }
 
-            border-radius:
-                12px 12px 0 0;
 
-            transform-origin: top center;
+    .stem {
 
-            transition:
-                transform
-                0.8s
-                cubic-bezier(
-                    0.4,
-                    0,
-                    0.2,
-                    1
-                );
+      position: absolute;
 
-            z-index: 5;
+      width: 5px;
+      height: 125px;
 
-            pointer-events: none;
-        }
+      bottom: 0;
+      left: 32px;
 
+      background: #3b9b5f;
 
-        .envelope.opened
-        .envelope-flap {
+      border-radius: 10px;
+    }
 
-            transform:
-                rotateX(180deg);
 
-            z-index: 1;
-        }
+    .leaf {
 
+      position: absolute;
 
-        /* =====================================================
-           ENVELOPE HEART
-        ===================================================== */
+      width: 34px;
+      height: 16px;
 
-        .envelope-heart {
+      background: #4caf6b;
 
-            position: absolute;
+      border-radius:
+        100% 0 100% 0;
+    }
 
-            left: 50%;
-            top: 50%;
 
-            transform:
-                translate(
-                    -50%,
-                    -50%
-                );
+    .leaf-left {
 
-            font-size: 38px;
+      left: 2px;
+      bottom: 55px;
 
-            z-index: 6;
+      transform:
+        rotate(25deg);
+    }
 
-            pointer-events: none;
 
-            transition:
-                opacity
-                0.3s
-                ease,
+    .leaf-right {
 
-                transform
-                0.4s
-                ease;
-        }
+      right: 0;
+      bottom: 78px;
 
+      transform:
+        rotate(-25deg)
+        scaleX(-1);
+    }
 
-        .envelope.opened
-        .envelope-heart {
 
-            opacity: 0;
+    .standing .flower {
 
-            transform:
-                translate(
-                    -50%,
-                    -50%
-                )
-                scale(0.5);
-        }
+      top: 0;
+      left: 10px;
 
+      position: absolute;
 
-        /* =====================================================
-           OPEN BUTTON
-        ===================================================== */
+      animation:
+        standingFloat 3s ease-in-out infinite;
+    }
 
-        .open-button {
 
-            padding:
-                13px
-                32px;
+    @keyframes standingFloat {
 
-            border: none;
+      0%, 100% {
+        transform: rotate(-2deg);
+      }
 
-            border-radius:
-                999px;
+      50% {
+        transform: rotate(4deg);
+      }
 
-            background:
-                #f9a8d4;
+    }
 
-            color:
-                #ffffff;
 
-            font-family:
-                "DM Sans",
-                sans-serif;
+    .stand1 {
+      left: 5%;
+    }
 
-            font-size:
-                16px;
+    .stand2 {
+      right: 5%;
+      transform: scale(0.9);
+    }
 
-            font-weight:
-                600;
+    .stand3 {
+      left: 25%;
+      transform: scale(0.7);
+    }
 
-            cursor:
-                pointer;
+    .stand4 {
+      right: 25%;
+      transform: scale(0.75);
+    }
 
-            box-shadow:
-                0 8px 25px
-                rgba(
-                    236,
-                    145,
-                    180,
-                    0.25
-                );
 
-            transition:
-                transform
-                0.2s
-                ease,
+    /* =================================
+       FALLING FLOWER CONFETTI
+    ================================= */
 
-                box-shadow
-                0.2s
-                ease;
-        }
+    .falling-flower {
 
+      position: absolute;
 
-        .open-button:hover {
+      top: -60px;
 
-            transform:
-                translateY(-2px)
-                scale(1.03);
+      z-index: 2;
 
-            box-shadow:
-                0 10px 28px
-                rgba(
-                    236,
-                    145,
-                    180,
-                    0.4
-                );
-        }
+      animation:
+        flowerFall linear infinite;
+    }
 
 
-        .open-button:active {
+    @keyframes flowerFall {
 
-            transform:
-                scale(0.96);
-        }
+      0% {
+        transform:
+          translateY(-70px)
+          rotate(0deg);
+      }
 
+      100% {
+        transform:
+          translateY(110vh)
+          rotate(360deg);
+      }
 
-        /* =====================================================
-           MODAL
-           
-           IMPORTANT:
-           This is OUTSIDE the envelope.
-           
-           This is what fixes the scrolling problem.
-        ===================================================== */
+    }
 
-        .modal {
 
-            position: fixed;
+    /* =================================
+       SPARKLES
+    ================================= */
 
-            inset: 0;
+    .sparkle {
 
-            width: 100%;
-            height: 100%;
+      position: absolute;
 
-            height: 100dvh;
+      color: white;
 
-            display: flex;
+      font-size: 18px;
 
-            align-items: center;
-            justify-content: center;
+      opacity: 0.7;
 
-            padding:
-                24px
-                16px;
+      animation:
+        sparkle 2s ease-in-out infinite;
+    }
 
-            background:
-                rgba(
-                    50,
-                    25,
-                    45,
-                    0.14
-                );
 
-            opacity: 0;
+    @keyframes sparkle {
 
-            visibility: hidden;
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+      }
 
-            pointer-events: none;
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
 
-            z-index: 99999;
+    }
 
-            transition:
-                opacity
-                0.4s
-                ease,
 
-                visibility
-                0s
-                linear
-                0.4s;
-        }
+    .s1 {
+      top: 20%;
+      left: 25%;
+    }
 
+    .s2 {
+      top: 30%;
+      right: 25%;
+    }
 
-        /* =====================================================
-           MODAL ACTIVE
-        ===================================================== */
+    .s3 {
+      bottom: 30%;
+      left: 35%;
+    }
 
-        .modal.active {
+    .s4 {
+      bottom: 20%;
+      right: 35%;
+    }
 
-            opacity: 1;
 
-            visibility: visible;
+    /* =================================
+       POPUP BACKGROUND
+    ================================= */
 
-            pointer-events: auto;
+    .popup-container {
 
-            transition:
-                opacity
-                0.4s
-                ease,
+      position: fixed;
 
-                visibility
-                0s;
-        }
+      inset: 0;
 
+      background:
+        rgba(30, 100, 160, 0.35);
 
-        /* =====================================================
-           MESSAGE CARD
-        ===================================================== */
+      backdrop-filter:
+        blur(5px);
 
-        .message-card {
+      display: none;
 
-            position: relative;
+      justify-content: center;
+      align-items: center;
 
-            width:
-                min(
-                    560px,
-                    100%
-                );
+      z-index: 100;
+    }
 
-            /*
-                Desktop height
-            */
 
-            max-height:
-                calc(
-                    100vh - 48px
-                );
+    .popup-container.show {
 
-            /*
-                Mobile browser height
-            */
+      display: flex;
 
-            max-height:
-                calc(
-                    100dvh - 48px
-                );
+      animation:
+        fadeIn 0.3s ease;
+    }
 
-            background:
-                #fffdfb;
 
-            border:
-                1px solid
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.9
-                );
+    @keyframes fadeIn {
 
-            border-radius:
-                22px;
+      from {
+        opacity: 0;
+      }
 
-            box-shadow:
+      to {
+        opacity: 1;
+      }
 
-                0 30px 90px
-                rgba(
-                    70,
-                    25,
-                    60,
-                    0.28
-                ),
+    }
 
-                0 10px 35px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.12
-                );
 
-            padding:
-                34px
-                30px;
+    /* =================================
+       POPUP CARD
+    ================================= */
 
-            /*
-                THE IMPORTANT PART
-            */
+    .popup {
 
-            overflow-y:
-                auto;
+      position: relative;
 
-            overflow-x:
-                hidden;
+      width: min(330px, 85vw);
 
-            /*
-                Mobile scrolling
-            */
+      min-height: 220px;
 
-            -webkit-overflow-scrolling:
-                touch;
+      padding: 35px 25px;
 
-            overscroll-behavior:
-                contain;
+      background:
+        rgba(255,255,255,0.95);
 
-            touch-action:
-                pan-y;
+      border-radius: 25px;
 
-            scrollbar-width:
-                thin;
+      text-align: center;
 
-            scrollbar-color:
-                #f3b7d1
-                transparent;
+      box-shadow:
+        0 20px 60px
+        rgba(0,0,0,0.2);
 
-            /*
-                Opening animation
-            */
+      animation:
+        popup 0.5s cubic-bezier(.17,.67,.35,1.4);
+    }
 
-            transform:
-                scale(0.65)
-                translateY(25px);
 
-            opacity: 0;
+    @keyframes popup {
 
-            transition:
-                transform
-                0.7s
-                cubic-bezier(
-                    0.22,
-                    1,
-                    0.36,
-                    1
-                ),
+      from {
 
-                opacity
-                0.45s
-                ease;
-        }
+        opacity: 0;
 
+        transform:
+          scale(0.5)
+          rotate(-5deg);
+      }
 
-        /* =====================================================
-           CARD OPEN ANIMATION
-        ===================================================== */
+      to {
 
-        .modal.active
-        .message-card {
+        opacity: 1;
 
-            transform:
-                scale(1)
-                translateY(0);
+        transform:
+          scale(1)
+          rotate(0);
+      }
 
-            opacity: 1;
-        }
+    }
 
 
-        /* =====================================================
-           WEBKIT SCROLLBAR
-        ===================================================== */
+    .popup h2 {
 
-        .message-card::-webkit-scrollbar {
+      color: #5da9e9;
 
-            width: 6px;
-        }
+      font-family:
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
 
+      font-size: 36px;
 
-        .message-card::-webkit-scrollbar-track {
+      font-weight: 400;
 
-            background:
-                transparent;
-        }
+      margin-bottom: 8px;
+    }
 
 
-        .message-card::-webkit-scrollbar-thumb {
+    .popup p {
 
-            background:
-                #f3b7d1;
+      color: #777;
 
-            border-radius:
-                50px;
-        }
+      font-size: 13px;
 
+      margin-bottom: 20px;
+    }
 
-        .message-card::-webkit-scrollbar-thumb:hover {
 
-            background:
-                #e7a2c2;
-        }
+    /* CLOSE BUTTON */
 
+    .close {
 
-        /* =====================================================
-           MESSAGE ICON
-        ===================================================== */
+      position: absolute;
 
-        .message-icon {
+      top: 12px;
+      right: 16px;
 
-            display: block;
+      border: none;
 
-            margin-bottom:
-                9px;
+      background: transparent;
 
-            font-size:
-                34px;
+      color: #aaa;
 
-            line-height:
-                1;
+      font-size: 20px;
 
-            text-align:
-                center;
-        }
+      cursor: pointer;
+    }
 
 
-        /* =====================================================
-           MESSAGE TITLE
-        ===================================================== */
+    /* =================================
+       FALLING LOVE WORDS
+    ================================= */
 
-        .message-title {
+    .love-word {
 
-            margin:
-                0;
+      position: fixed;
 
-            color:
-                #7c3a6b;
+      top: -60px;
 
-            font-size:
-                24px;
+      z-index: 200;
 
-            font-weight:
-                700;
+      pointer-events: none;
 
-            line-height:
-                1.3;
+      font-family:
+        "Trebuchet MS",
+        sans-serif;
 
-            text-align:
-                center;
-        }
+      font-weight: 600;
 
+      white-space: nowrap;
 
-        /* =====================================================
-           DIVIDER
-        ===================================================== */
+      animation:
+        loveFall linear forwards;
 
-        .divider {
+      text-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.1);
+    }
 
-            width:
-                70px;
 
-            height:
-                3px;
+    @keyframes loveFall {
 
-            margin:
-                18px auto
-                22px;
+      0% {
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #f5b4cf,
-                    #dba7ed
-                );
+        transform:
+          translateY(-70px)
+          rotate(-10deg);
 
-            border-radius:
-                50px;
-        }
+        opacity: 0;
+      }
 
+      10% {
 
-        /* =====================================================
-           MESSAGE TEXT
-        ===================================================== */
+        opacity: 1;
+      }
 
-        .message-text {
+      90% {
 
-            margin:
-                0;
+        opacity: 1;
+      }
 
-            color:
-                #6f5263;
+      100% {
 
-            font-size:
-                15px;
+        transform:
+          translateY(115vh)
+          rotate(20deg);
 
-            line-height:
-                1.8;
+        opacity: 0;
+      }
 
-            text-align:
-                left;
+    }
 
-            white-space:
-                pre-line;
 
-            overflow-wrap:
-                anywhere;
-        }
+    /* =================================
+       MOBILE
+    ================================= */
 
+    @media (max-width: 600px) {
 
-        /* =====================================================
-           CLOSE BUTTON
-        ===================================================== */
+      .title {
+        font-size: 38px;
+      }
 
-        .close-message {
+      .click-button {
+        font-size: 12px;
+        padding: 8px 18px;
+      }
 
-            display:
-                block;
+      .standing {
+        transform: scale(0.75);
+      }
 
-            margin:
-                25px auto
-                0;
+      .stand2,
+      .stand3,
+      .stand4 {
+        transform: scale(0.6);
+      }
 
-            padding:
-                11px
-                24px;
+    }
 
-            border:
-                none;
-
-            border-radius:
-                999px;
-
-            background:
-                #f9a8d4;
-
-            color:
-                #ffffff;
-
-            font-family:
-                "DM Sans",
-                sans-serif;
-
-            font-size:
-                14px;
-
-            font-weight:
-                600;
-
-            cursor:
-                pointer;
-
-            box-shadow:
-                0 6px 18px
-                rgba(
-                    236,
-                    145,
-                    180,
-                    0.25
-                );
-
-            transition:
-                transform
-                0.2s
-                ease,
-
-                box-shadow
-                0.2s
-                ease;
-        }
-
-
-        .close-message:hover {
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 8px 22px
-                rgba(
-                    236,
-                    145,
-                    180,
-                    0.4
-                );
-        }
-
-
-        .close-message:active {
-
-            transform:
-                scale(0.96);
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 768px) {
-
-            .page {
-
-                gap:
-                    24px;
-
-                padding:
-                    20px;
-            }
-
-
-            .message-card {
-
-                width:
-                    calc(
-                        100vw - 32px
-                    );
-
-                max-height:
-                    calc(
-                        100dvh - 40px
-                    );
-
-                padding:
-                    30px
-                    24px;
-
-                border-radius:
-                    20px;
-            }
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            .page {
-
-                min-height:
-                    100dvh;
-
-                padding:
-                    20px
-                    16px;
-
-                gap:
-                    20px;
-            }
-
-
-            .title {
-
-                font-size:
-                    25px;
-            }
-
-
-            .subtitle {
-
-                font-size:
-                    13px;
-            }
-
-
-            .envelope-wrapper {
-
-                transform:
-                    scale(0.9);
-
-                margin:
-                    -5px
-                    0;
-            }
-
-
-            /* ================================================
-               MOBILE MODAL
-            ================================================ */
-
-            .modal {
-
-                align-items:
-                    center;
-
-                justify-content:
-                    center;
-
-                padding:
-                    15px
-                    10px;
-
-                /*
-                    Don't use blur.
-                    Don't use backdrop-filter.
-                */
-            }
-
-
-            .message-card {
-
-                width:
-                    calc(
-                        100vw - 20px
-                    );
-
-                max-width:
-                    none;
-
-                /*
-                    THIS gives the card
-                    a real scrollable area.
-                */
-
-                height:
-                    auto;
-
-                max-height:
-                    calc(
-                        100dvh - 30px
-                    );
-
-                overflow-y:
-                    auto;
-
-                overflow-x:
-                    hidden;
-
-                -webkit-overflow-scrolling:
-                    touch;
-
-                overscroll-behavior:
-                    contain;
-
-                touch-action:
-                    pan-y;
-
-                padding:
-                    27px
-                    21px;
-
-                border-radius:
-                    19px;
-            }
-
-
-            .message-icon {
-
-                font-size:
-                    30px;
-            }
-
-
-            .message-title {
-
-                font-size:
-                    21px;
-            }
-
-
-            .message-text {
-
-                font-size:
-                    14px;
-
-                line-height:
-                    1.75;
-            }
-
-
-            .close-message {
-
-                margin-top:
-                    22px;
-
-                padding:
-                    11px
-                    22px;
-            }
-
-
-            .open-button {
-
-                padding:
-                    12px
-                    27px;
-
-                font-size:
-                    15px;
-            }
-        }
-
-
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 380px) {
-
-            .modal {
-
-                padding:
-                    10px
-                    6px;
-            }
-
-
-            .message-card {
-
-                width:
-                    calc(
-                        100vw - 12px
-                    );
-
-                max-height:
-                    calc(
-                        100dvh - 20px
-                    );
-
-                padding:
-                    24px
-                    18px;
-            }
-
-
-            .message-title {
-
-                font-size:
-                    20px;
-            }
-
-
-            .message-text {
-
-                font-size:
-                    13.5px;
-
-                line-height:
-                    1.7;
-            }
-        }
-
-
-        /* =====================================================
-           LANDSCAPE PHONE
-        ===================================================== */
-
-        @media (
-            max-height: 550px
-        ) and (
-            orientation: landscape
-        ) {
-
-            .modal {
-
-                padding:
-                    10px;
-            }
-
-
-            .message-card {
-
-                width:
-                    min(
-                        90vw,
-                        620px
-                    );
-
-                max-height:
-                    calc(
-                        100dvh - 20px
-                    );
-
-                padding:
-                    22px
-                    25px;
-            }
-
-
-            .page {
-
-                gap:
-                    12px;
-            }
-
-
-            .title {
-
-                font-size:
-                    21px;
-            }
-
-
-            .subtitle {
-
-                display:
-                    none;
-            }
-        }
-
-    </style>
-
+  </style>
 </head>
 
 
 <body>
 
 
-    <!-- =====================================================
-         FLOATING DECORATIONS
-    ===================================================== -->
-
-    <span
-        class="heart"
-        style="
-            top:10%;
-            left:12%;
-            animation-delay:0s;
-        "
-    >
-        💕
-    </span>
-
-
-    <span
-        class="heart"
-        style="
-            top:20%;
-            right:15%;
-            animation-delay:1.5s;
-        "
-    >
-        ✨
-    </span>
-
-
-    <span
-        class="heart"
-        style="
-            bottom:25%;
-            left:20%;
-            animation-delay:3s;
-        "
-    >
-        💗
-    </span>
-
-
-    <span
-        class="heart"
-        style="
-            top:60%;
-            right:10%;
-            animation-delay:2s;
-        "
-    >
-        ✨
-    </span>
-
-
-    <span
-        class="heart"
-        style="
-            bottom:15%;
-            right:25%;
-            animation-delay:4s;
-        "
-    >
-        💕
-    </span>
-
-
-    <!-- =====================================================
-         SPARKLES
-    ===================================================== -->
-
-    <span
-        class="sparkle"
-        style="
-            top:30%;
-            left:30%;
-            animation-delay:.5s;
-        "
-    ></span>
-
-
-    <span
-        class="sparkle"
-        style="
-            top:50%;
-            right:20%;
-            animation-delay:1s;
-        "
-    ></span>
-
-
-    <span
-        class="sparkle"
-        style="
-            bottom:35%;
-            left:45%;
-            animation-delay:2s;
-        "
-    ></span>
-
-
-    <!-- =====================================================
-         MAIN PAGE
-    ===================================================== -->
+  <!-- =================================
+       CENTER
+  ================================= -->
+
+  <div class="center">
+
+    <div class="title">
+      rebreb
+    </div>
+
+    <button
+      class="click-button"
+      onclick="openLove()">
 
-    <main class="page">
+      click here ♡
 
+    </button>
 
-        <h1 class="title">
-            You have a little message 💌
-        </h1>
+  </div>
 
 
-        <p class="subtitle">
-            Someone left something for you.
-        </p>
 
+  <!-- =================================
+       FLOATING FLOWERS
+  ================================= -->
 
-        <!-- =================================================
-             ENVELOPE
-        ================================================== -->
+  <div class="flower pink f1">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-        <div class="envelope-wrapper">
 
-            <div
-                id="envelope"
-                class="envelope"
-            >
+  <div class="flower yellow f2">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-                <div
-                    class="envelope-flap"
-                ></div>
 
+  <div class="flower purple f3">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-                <div
-                    class="envelope-heart"
-                >
-                    💌
-                </div>
 
+  <div class="flower white f4">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-                <div
-                    class="envelope-front"
-                ></div>
 
-            </div>
+  <div class="flower orange f5">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-        </div>
 
+  <div class="flower pink f6">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-        <!-- =================================================
-             OPEN BUTTON
-        ================================================== -->
 
-        <button
-            id="openButton"
-            class="open-button"
-            type="button"
-        >
-            Open Message 💌
-        </button>
+  <div class="flower yellow f7">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-    </main>
 
+  <div class="flower purple f8">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="flower-center"></div>
+  </div>
 
-    <!-- =====================================================
-         SEPARATE MODAL
-         
-         IMPORTANT:
-         It is NOT inside the envelope anymore.
-    ===================================================== -->
 
-    <div
-        id="messageModal"
-        class="modal"
-        aria-hidden="true"
-    >
 
+  <!-- =================================
+       STANDING FLOWER 1
+  ================================= -->
 
-        <!-- MESSAGE CARD -->
+  <div class="standing stand1">
 
-        <div
-            id="messageCard"
-            class="message-card"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="messageTitle"
-        >
+    <div class="flower pink">
 
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
 
-            <span class="message-icon">
-                💌
-            </span>
-
-
-            <h2
-                id="messageTitle"
-                class="message-title"
-            >
-                A Little Reminder For You
-            </h2>
-
-
-            <div
-                class="divider"
-            ></div>
-
-
-            <p class="message-text">
-Hey, you. Yes, ikaw na nagbabasa nito. 😌
-
-I don't know what you're currently going through, pero I just want to remind you na you don't have to figure everything out all at once.
-
-Maybe you're tired. Maybe you're confused about your future. Maybe you're silently dealing with something na hindi mo kayang ikwento kahit kanino. Or maybe you're simply trying your best to get through each day.
-
-And that's okay.
-
-Hindi mo kailangang laging maging strong. You're allowed to rest, to feel lost, to make mistakes, and even to start over. Hindi ibig sabihin na mabagal ka, wala ka nang progress. Sometimes, surviving a difficult day is already an achievement.
-
-Please don't compare your chapter to someone else's highlight. Everyone has their own timing, sariling struggles, and sariling path.
-
-You are not behind.
-
-You're just moving at your own pace.
-
-So take it easy on yourself, okay? One step at a time.
-
-If today didn't go well, tomorrow is another chance. If you made a mistake, learn from it. If something didn't work out, maybe it wasn't meant to stay.
-
-And if nobody has told you lately:
-
-I'm proud of you for still trying. 
-
-Keep going, kahit konti-konti lang.
-
-Someday, you'll look back and realize na yung version of you who almost gave up was actually the one who kept you moving forward.
-
-Take care of yourself.
-
-You deserve good things too. 
-            </p>
-
-
-            <button
-                id="closeMessage"
-                class="close-message"
-                type="button"
-            >
-                Close Message ✨
-            </button>
-
-
-        </div>
+      <div class="flower-center"></div>
 
     </div>
 
+    <div class="stem"></div>
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
+    <div class="leaf leaf-left"></div>
+    <div class="leaf leaf-right"></div>
 
-    <script>
-
-        const envelope =
-            document.getElementById(
-                "envelope"
-            );
-
-        const openButton =
-            document.getElementById(
-                "openButton"
-            );
-
-        const messageModal =
-            document.getElementById(
-                "messageModal"
-            );
-
-        const messageCard =
-            document.getElementById(
-                "messageCard"
-            );
-
-        const closeMessage =
-            document.getElementById(
-                "closeMessage"
-            );
+  </div>
 
 
-        /* =================================================
-           OPEN
-        ================================================= */
 
-        function openMessage() {
+  <!-- =================================
+       STANDING FLOWER 2
+  ================================= -->
 
-            /*
-                First animate envelope
-            */
+  <div class="standing stand2">
 
-            envelope.classList.add(
-                "opened"
-            );
+    <div class="flower yellow">
 
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
 
-            /*
-                Then show modal
-            */
+      <div class="flower-center"></div>
 
-            setTimeout(
-                function () {
+    </div>
 
-                    messageModal.classList.add(
-                        "active"
-                    );
+    <div class="stem"></div>
 
-                    messageModal.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
+    <div class="leaf leaf-left"></div>
+    <div class="leaf leaf-right"></div>
 
-                    /*
-                        Always start at
-                        top of message
-                    */
-
-                    messageCard.scrollTop = 0;
-
-                },
-                350
-            );
+  </div>
 
 
-            openButton.textContent =
-                "Close Message";
-        }
+
+  <!-- =================================
+       STANDING FLOWER 3
+  ================================= -->
+
+  <div class="standing stand3">
+
+    <div class="flower purple">
+
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
+
+      <div class="flower-center"></div>
+
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="leaf leaf-left"></div>
+
+  </div>
 
 
-        /* =================================================
-           CLOSE
-        ================================================= */
 
-        function closeMessageModal() {
+  <!-- =================================
+       STANDING FLOWER 4
+  ================================= -->
 
-            messageModal.classList.remove(
-                "active"
-            );
+  <div class="standing stand4">
 
-            messageModal.setAttribute(
-                "aria-hidden",
-                "true"
-            );
+    <div class="flower white">
 
+      <div class="petal p1"></div>
+      <div class="petal p2"></div>
+      <div class="petal p3"></div>
+      <div class="petal p4"></div>
+      <div class="petal p5"></div>
 
-            /*
-                Close envelope after
-                modal animation starts
-            */
+      <div class="flower-center"></div>
 
-            setTimeout(
-                function () {
+    </div>
 
-                    envelope.classList.remove(
-                        "opened"
-                    );
+    <div class="stem"></div>
 
-                },
-                200
-            );
+    <div class="leaf leaf-right"></div>
+
+  </div>
 
 
-            openButton.textContent =
-                "Open Message 💌";
-        }
+
+  <!-- =================================
+       SPARKLES
+  ================================= -->
+
+  <div class="sparkle s1">✦</div>
+  <div class="sparkle s2">✧</div>
+  <div class="sparkle s3">✦</div>
+  <div class="sparkle s4">✧</div>
 
 
-        /* =================================================
-           OPEN BUTTON
-        ================================================= */
 
-        openButton.addEventListener(
-            "click",
-            function () {
+  <!-- =================================
+       POPUP
+  ================================= -->
 
-                if (
-                    messageModal.classList.contains(
-                        "active"
-                    )
-                ) {
+  <div
+    class="popup-container"
+    id="popup">
 
-                    closeMessageModal();
+    <div class="popup">
 
-                } else {
+      <button
+        class="close"
+        onclick="closeLove()">
 
-                    openMessage();
+        ×
 
-                }
+      </button>
 
-            }
+      <h2>for rebreb ♡</h2>
+
+      <p>
+        I have something to tell you...
+      </p>
+
+      <div style="font-size: 28px;">
+        🌸 💗 🌷
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =================================
+       JAVASCRIPT
+  ================================= -->
+
+  <script>
+
+
+    /* ================================
+       RANDOM FLOWER CONFETTI
+    ================================= */
+
+    const flowerColors = [
+      "pink",
+      "yellow",
+      "purple",
+      "white",
+      "orange",
+      "blue"
+    ];
+
+
+    function createFlowerConfetti() {
+
+      const flower =
+        document.createElement("div");
+
+      flower.classList.add(
+        "flower",
+        "falling-flower"
+      );
+
+
+      const randomColor =
+        flowerColors[
+          Math.floor(
+            Math.random() *
+            flowerColors.length
+          )
+        ];
+
+
+      flower.classList.add(randomColor);
+
+
+      flower.innerHTML = `
+
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+
+        <div class="flower-center"></div>
+
+      `;
+
+
+      flower.style.left =
+        Math.random() * 100 + "vw";
+
+
+      const size =
+        0.35 +
+        Math.random() * 0.7;
+
+
+      flower.style.transform =
+        `scale(${size})`;
+
+
+      flower.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+
+      flower.style.animationDelay =
+        Math.random() * 4 + "s";
+
+
+      document.body.appendChild(flower);
+
+
+      setTimeout(() => {
+
+        flower.remove();
+
+      }, 13000);
+
+    }
+
+
+    /* Keep creating flowers */
+
+    setInterval(
+      createFlowerConfetti,
+      450
+    );
+
+
+    /* Initial flowers */
+
+    for (let i = 0; i < 18; i++) {
+
+      setTimeout(
+        createFlowerConfetti,
+        i * 200
+      );
+
+    }
+
+
+
+    /* ================================
+       OPEN POPUP
+    ================================= */
+
+    function openLove() {
+
+      document
+        .getElementById("popup")
+        .classList.add("show");
+
+
+      /* Start falling love messages */
+
+      startLoveRain();
+
+    }
+
+
+
+    /* ================================
+       CLOSE POPUP
+    ================================= */
+
+    function closeLove() {
+
+      document
+        .getElementById("popup")
+        .classList.remove("show");
+
+    }
+
+
+
+    /* ================================
+       LOVE WORDS
+    ================================= */
+
+    const loveWords = [
+
+      "i love you ♡",
+      "i love you more",
+      "love you",
+      "love you more",
+      "i miss you ♡",
+      "miss you",
+      "always you",
+      "my favorite",
+      "you & me",
+      "more than you know",
+      "♡ i love you ♡",
+      "still you",
+      "only you",
+      "you are special",
+      "hehe i love you",
+      "lovelovelove",
+      "i choose you",
+      "always ♡",
+      "mwah",
+      "kiss kiss",
+      "take care",
+      "stay with me",
+      "you're my favorite",
+      "i adore you",
+      "so much love",
+      "more more more",
+      "i love you, okay?",
+      "♡",
+      "🌸",
+      "💗",
+      "🌷"
+
+    ];
+
+
+    const loveColors = [
+
+      "#ff6f91",
+      "#ff8fab",
+      "#d66efd",
+      "#5da9e9",
+      "#ff9f68",
+      "#e85d9e"
+
+    ];
+
+
+
+    /* ================================
+       CREATE FALLING WORD
+    ================================= */
+
+    function createLoveWord() {
+
+      const word =
+        document.createElement("div");
+
+
+      word.classList.add(
+        "love-word"
+      );
+
+
+      word.textContent =
+        loveWords[
+          Math.floor(
+            Math.random() *
+            loveWords.length
+          )
+        ];
+
+
+      word.style.left =
+        Math.random() * 95 + "vw";
+
+
+      word.style.fontSize =
+        (12 + Math.random() * 9)
+        + "px";
+
+
+      word.style.color =
+        loveColors[
+          Math.floor(
+            Math.random() *
+            loveColors.length
+          )
+        ];
+
+
+      word.style.animationDuration =
+        (4 + Math.random() * 5)
+        + "s";
+
+
+      word.style.animationDelay =
+        (Math.random() * 0.5)
+        + "s";
+
+
+      document.body.appendChild(word);
+
+
+      setTimeout(() => {
+
+        word.remove();
+
+      }, 10000);
+
+    }
+
+
+
+    /* ================================
+       LOVE RAIN
+    ================================= */
+
+    let loveRainStarted = false;
+
+
+    function startLoveRain() {
+
+      if (loveRainStarted) {
+        return;
+      }
+
+
+      loveRainStarted = true;
+
+
+      /* First burst */
+
+      for (let i = 0; i < 35; i++) {
+
+        setTimeout(
+          createLoveWord,
+          i * 100
         );
 
-
-        /* =================================================
-           CLOSE BUTTON
-        ================================================= */
-
-        closeMessage.addEventListener(
-            "click",
-            function () {
-
-                closeMessageModal();
-
-            }
-        );
+      }
 
 
-        /* =================================================
-           CLICK OUTSIDE CARD
-        ================================================= */
+      /* Continuous falling words */
 
-        messageModal.addEventListener(
-            "click",
-            function (event) {
+      setInterval(
+        createLoveWord,
+        280
+      );
 
-                if (
-                    event.target ===
-                    messageModal
-                ) {
-
-                    closeMessageModal();
-
-                }
-
-            }
-        );
+    }
 
 
-        /* =================================================
-           ESCAPE KEY
-        ================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (
-                    event.key === "Escape" &&
-                    messageModal.classList.contains(
-                        "active"
-                    )
-                ) {
-
-                    closeMessageModal();
-
-                }
-
-            }
-        );
-
-
-        /* =================================================
-           PREVENT BACKGROUND SCROLL
-           
-           IMPORTANT:
-           We DO NOT prevent touchmove
-           inside the message card.
-           
-           This allows natural phone scrolling.
-        ================================================= */
-
-        let startY = 0;
-
-
-        messageModal.addEventListener(
-            "touchstart",
-            function (event) {
-
-                startY =
-                    event.touches[0].clientY;
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-        /*
-            Nothing is prevented here.
-
-            The browser is allowed to handle
-            native scrolling inside .message-card.
-        */
-
-
-        /* =================================================
-           LOCK BODY SCROLL WHEN MODAL OPEN
-        ================================================= */
-
-        function lockBody() {
-
-            document.body.style.overflow =
-                "hidden";
-        }
-
-
-        function unlockBody() {
-
-            document.body.style.overflow =
-                "hidden";
-        }
-
-
-    </script>
+  </script>
 
 </body>
-
-</html>
+    </html>
