@@ -1,1054 +1,834 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>rebreb ♡</title>
+<title>rebreb ♡</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+/* =========================
+   BASIC
+========================= */
 
-      background:
-        linear-gradient(
-          135deg,
-          #4da3e8,
-          #72b9ef,
-          #4b9ddd
-        );
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-      font-family: Arial, sans-serif;
-    }
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 
+    background:
+        radial-gradient(circle at 50% 40%, #78c4f5 0%, #5da9e9 45%, #428bd0 100%);
 
-    /* =================================
-       CENTER CONTENT
-    ================================= */
-
-    .center {
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-
-      transform: translate(-50%, -50%);
-
-      text-align: center;
-
-      z-index: 50;
-    }
+    font-family: Arial, sans-serif;
+    position: relative;
+}
 
 
-    /* MAIN TEXT */
+/* =========================
+   MAIN CENTER
+========================= */
 
-    .title {
-      color: white;
+.main {
+    position: absolute;
 
-      font-family:
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+.title {
+    color: white;
+
+    font-family:
         "Brush Script MT",
         "Segoe Script",
         "Lucida Handwriting",
         cursive;
 
-      font-size: clamp(34px, 7vw, 58px);
+    font-size: clamp(34px, 7vw, 62px);
 
-      font-weight: 400;
+    font-weight: 400;
 
-      letter-spacing: 3px;
+    letter-spacing: 2px;
 
-      text-shadow:
-        0 3px 12px rgba(0,0,0,0.12);
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.12);
 
-      animation: gentle 3s ease-in-out infinite;
-    }
+    animation: gentle 3s ease-in-out infinite;
+}
 
+@keyframes gentle {
 
-    @keyframes gentle {
-
-      0%, 100% {
+    0%, 100% {
         transform: translateY(0);
-      }
+    }
 
-      50% {
+    50% {
         transform: translateY(-4px);
-      }
-
     }
+}
 
 
-    /* CLICK HERE */
+/* =========================
+   CLICK HERE
+========================= */
 
-    .click-button {
+.click {
 
-      margin-top: 10px;
+    display: inline-block;
 
-      border: none;
+    margin-top: 3px;
 
-      background: rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.95);
 
-      color: white;
+    font-family:
+        "Trebuchet MS",
+        sans-serif;
 
-      padding: 9px 22px;
+    font-size: 13px;
 
-      border-radius: 30px;
+    letter-spacing: 2px;
 
-      font-size: 13px;
+    text-decoration: underline;
 
-      letter-spacing: 1px;
+    text-underline-offset: 4px;
 
-      cursor: pointer;
+    cursor: pointer;
 
-      backdrop-filter: blur(5px);
+    transition: 0.25s ease;
+}
 
-      transition: 0.3s;
+.click:hover {
 
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-    }
+    transform: scale(1.08);
 
+    color: #fff;
 
-    .click-button:hover {
-
-      background: rgba(255,255,255,0.35);
-
-      transform: scale(1.06);
-    }
-
-
-    /* =================================
-       FLOWERS
-    ================================= */
-
-    .flower {
-
-      position: absolute;
-
-      width: 45px;
-      height: 45px;
-
-      z-index: 5;
-
-      animation:
-        floating 4s ease-in-out infinite;
-    }
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8);
+}
 
 
-    .petal {
+/* =========================
+   FLOWER
+========================= */
 
-      position: absolute;
+.flower {
 
-      width: 18px;
-      height: 27px;
+    position: absolute;
 
-      left: 14px;
-      top: 0;
+    width: 42px;
+    height: 42px;
 
-      border-radius: 50%;
+    z-index: 5;
 
-      transform-origin:
-        50% 100%;
-    }
+    animation:
+        flowerFloat 4s ease-in-out infinite;
+}
 
+.petal {
 
-    .p1 {
-      transform:
-        rotate(0deg)
-        translateY(-7px);
-    }
+    position: absolute;
 
-    .p2 {
-      transform:
-        rotate(72deg)
-        translateY(-7px);
-    }
+    width: 17px;
+    height: 25px;
 
-    .p3 {
-      transform:
-        rotate(144deg)
-        translateY(-7px);
-    }
+    left: 13px;
+    top: 0;
 
-    .p4 {
-      transform:
-        rotate(216deg)
-        translateY(-7px);
-    }
+    border-radius: 50%;
 
-    .p5 {
-      transform:
-        rotate(288deg)
-        translateY(-7px);
-    }
+    transform-origin: 50% 100%;
+}
 
+.p1 {
+    transform: rotate(0deg) translateY(-6px);
+}
 
-    .flower-center {
+.p2 {
+    transform: rotate(72deg) translateY(-6px);
+}
 
-      position: absolute;
+.p3 {
+    transform: rotate(144deg) translateY(-6px);
+}
 
-      width: 13px;
-      height: 13px;
+.p4 {
+    transform: rotate(216deg) translateY(-6px);
+}
 
-      top: 16px;
-      left: 16px;
+.p5 {
+    transform: rotate(288deg) translateY(-6px);
+}
 
-      border-radius: 50%;
+.flower-center {
 
-      background: #ffd84d;
+    position: absolute;
 
-      z-index: 3;
-    }
+    width: 12px;
+    height: 12px;
 
+    left: 15px;
+    top: 15px;
 
-    /* FLOWER COLORS */
+    background: #ffe066;
 
-    .pink .petal {
-      background: #ff91b5;
-    }
+    border-radius: 50%;
 
-    .yellow .petal {
-      background: #ffe27a;
-    }
-
-    .purple .petal {
-      background: #c8a6ff;
-    }
-
-    .white .petal {
-      background: #ffffff;
-    }
-
-    .orange .petal {
-      background: #ffb36b;
-    }
-
-    .blue .petal {
-      background: #8ee0ff;
-    }
+    z-index: 3;
+}
 
 
-    @keyframes floating {
+/* FLOWER COLORS */
 
-      0%, 100% {
+.pink .petal {
+    background: #ff91b5;
+}
+
+.yellow .petal {
+    background: #ffe477;
+}
+
+.purple .petal {
+    background: #c5a1ff;
+}
+
+.white .petal {
+    background: #fff;
+}
+
+.orange .petal {
+    background: #ffae70;
+}
+
+
+/* FLOWER POSITIONS */
+
+.f1 {
+    left: 7%;
+    top: 12%;
+}
+
+.f2 {
+    right: 9%;
+    top: 18%;
+}
+
+.f3 {
+    left: 13%;
+    bottom: 23%;
+}
+
+.f4 {
+    right: 12%;
+    bottom: 20%;
+}
+
+.f5 {
+    left: 43%;
+    top: 7%;
+}
+
+.f6 {
+    right: 34%;
+    bottom: 8%;
+}
+
+.f7 {
+    left: 3%;
+    top: 48%;
+}
+
+.f8 {
+    right: 3%;
+    top: 50%;
+}
+
+@keyframes flowerFloat {
+
+    0%, 100% {
         transform:
-          translateY(0)
-          rotate(0deg);
-      }
+            translateY(0)
+            rotate(0deg);
+    }
 
-      50% {
+    50% {
         transform:
-          translateY(-15px)
-          rotate(10deg);
-      }
-
+            translateY(-13px)
+            rotate(10deg);
     }
+}
 
 
-    /* =================================
-       FLOWER POSITIONS
-    ================================= */
+/* =========================
+   STANDING FLOWERS
+========================= */
 
-    .f1 {
-      top: 8%;
-      left: 8%;
-    }
+.standing {
 
-    .f2 {
-      top: 18%;
-      right: 10%;
-    }
+    position: absolute;
 
-    .f3 {
-      top: 42%;
-      left: 4%;
-    }
+    bottom: -5px;
 
-    .f4 {
-      top: 48%;
-      right: 5%;
-    }
+    width: 65px;
+    height: 190px;
 
-    .f5 {
-      top: 7%;
-      left: 45%;
-    }
+    z-index: 6;
+}
 
-    .f6 {
-      bottom: 18%;
-      left: 13%;
-    }
+.stem {
 
-    .f7 {
-      bottom: 25%;
-      right: 13%;
-    }
+    position: absolute;
 
-    .f8 {
-      bottom: 8%;
-      left: 48%;
-    }
+    bottom: 0;
+    left: 30px;
 
+    width: 4px;
+    height: 125px;
 
-    /* =================================
-       STANDING FLOWERS
-    ================================= */
+    background: #39945d;
 
-    .standing {
+    border-radius: 10px;
+}
 
-      position: absolute;
+.leaf {
 
-      bottom: -5px;
+    position: absolute;
 
-      width: 70px;
-      height: 190px;
+    width: 30px;
+    height: 15px;
 
-      z-index: 8;
-    }
+    background: #4ba968;
 
+    border-radius: 100% 0 100% 0;
+}
 
-    .stem {
+.leaf-left {
 
-      position: absolute;
+    left: 2px;
+    bottom: 48px;
 
-      width: 5px;
-      height: 125px;
+    transform: rotate(25deg);
+}
 
-      bottom: 0;
-      left: 32px;
+.leaf-right {
 
-      background: #3b9b5f;
+    right: 0;
+    bottom: 72px;
 
-      border-radius: 10px;
-    }
-
-
-    .leaf {
-
-      position: absolute;
-
-      width: 34px;
-      height: 16px;
-
-      background: #4caf6b;
-
-      border-radius:
-        100% 0 100% 0;
-    }
-
-
-    .leaf-left {
-
-      left: 2px;
-      bottom: 55px;
-
-      transform:
-        rotate(25deg);
-    }
-
-
-    .leaf-right {
-
-      right: 0;
-      bottom: 78px;
-
-      transform:
+    transform:
         rotate(-25deg)
         scaleX(-1);
-    }
+}
+
+.standing-flower {
+
+    position: absolute;
+
+    left: 9px;
+    top: 0;
+
+    width: 45px;
+    height: 45px;
+}
 
 
-    .standing .flower {
+/* STANDING POSITIONS */
 
-      top: 0;
-      left: 10px;
+.stand1 {
+    left: 5%;
+}
 
-      position: absolute;
+.stand2 {
+    left: 24%;
+    transform: scale(.7);
+}
 
-      animation:
-        standingFloat 3s ease-in-out infinite;
-    }
+.stand3 {
+    right: 23%;
+    transform: scale(.75);
+}
 
-
-    @keyframes standingFloat {
-
-      0%, 100% {
-        transform: rotate(-2deg);
-      }
-
-      50% {
-        transform: rotate(4deg);
-      }
-
-    }
+.stand4 {
+    right: 5%;
+    transform: scale(.9);
+}
 
 
-    .stand1 {
-      left: 5%;
-    }
+/* =========================
+   SMALL FLOWER CONFETTI
+========================= */
 
-    .stand2 {
-      right: 5%;
-      transform: scale(0.9);
-    }
+.mini-flower {
 
-    .stand3 {
-      left: 25%;
-      transform: scale(0.7);
-    }
+    position: absolute;
 
-    .stand4 {
-      right: 25%;
-      transform: scale(0.75);
-    }
+    font-size: 15px;
 
+    animation:
+        miniFall linear infinite;
 
-    /* =================================
-       FALLING FLOWER CONFETTI
-    ================================= */
+    z-index: 2;
 
-    .falling-flower {
+    pointer-events: none;
+}
 
-      position: absolute;
+@keyframes miniFall {
 
-      top: -60px;
-
-      z-index: 2;
-
-      animation:
-        flowerFall linear infinite;
-    }
-
-
-    @keyframes flowerFall {
-
-      0% {
+    from {
         transform:
-          translateY(-70px)
-          rotate(0deg);
-      }
-
-      100% {
-        transform:
-          translateY(110vh)
-          rotate(360deg);
-      }
-
+            translateY(-50px)
+            rotate(0deg);
     }
 
+    to {
+        transform:
+            translateY(110vh)
+            rotate(540deg);
+    }
+}
 
-    /* =================================
-       SPARKLES
-    ================================= */
 
-    .sparkle {
+/* =========================
+   SPARKLES
+========================= */
 
-      position: absolute;
+.sparkle {
 
-      color: white;
+    position: absolute;
 
-      font-size: 18px;
+    color: white;
 
-      opacity: 0.7;
+    font-size: 18px;
 
-      animation:
+    opacity: .75;
+
+    animation:
         sparkle 2s ease-in-out infinite;
+
+    z-index: 3;
+}
+
+.s1 {
+    top: 22%;
+    left: 25%;
+}
+
+.s2 {
+    top: 34%;
+    right: 22%;
+}
+
+.s3 {
+    bottom: 31%;
+    left: 34%;
+}
+
+.s4 {
+    bottom: 18%;
+    right: 33%;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: .25;
+        transform: scale(.7);
     }
 
-
-    @keyframes sparkle {
-
-      0%, 100% {
-        opacity: 0.2;
-        transform: scale(0.7);
-      }
-
-      50% {
+    50% {
         opacity: 1;
-        transform: scale(1.2);
-      }
-
+        transform: scale(1.15);
     }
+}
 
 
-    .s1 {
-      top: 20%;
-      left: 25%;
-    }
+/* =========================
+   POPUP BACKGROUND
+========================= */
 
-    .s2 {
-      top: 30%;
-      right: 25%;
-    }
+.popup-overlay {
 
-    .s3 {
-      bottom: 30%;
-      left: 35%;
-    }
+    position: fixed;
 
-    .s4 {
-      bottom: 20%;
-      right: 35%;
-    }
+    inset: 0;
 
+    background:
+        rgba(35, 93, 145, 0.28);
 
-    /* =================================
-       POPUP BACKGROUND
-    ================================= */
+    backdrop-filter: blur(3px);
 
-    .popup-container {
+    display: none;
 
-      position: fixed;
+    align-items: center;
+    justify-content: center;
 
-      inset: 0;
-
-      background:
-        rgba(30, 100, 160, 0.35);
-
-      backdrop-filter:
-        blur(5px);
-
-      display: none;
-
-      justify-content: center;
-      align-items: center;
-
-      z-index: 100;
-    }
+    z-index: 100;
+}
 
 
-    .popup-container.show {
+/* =========================
+   POPUP BOX
+========================= */
 
-      display: flex;
+.popup {
 
-      animation:
-        fadeIn 0.3s ease;
-    }
+    position: relative;
 
+    width: min(82vw, 390px);
+    height: min(65vh, 420px);
 
-    @keyframes fadeIn {
+    background:
+        rgba(255,255,255,0.96);
 
-      from {
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.2);
+
+    overflow: hidden;
+
+    border: 2px solid rgba(255,255,255,.8);
+
+    animation:
+        popupOpen .35s ease-out;
+}
+
+@keyframes popupOpen {
+
+    from {
         opacity: 0;
-      }
+        transform: scale(.75);
+    }
 
-      to {
+    to {
         opacity: 1;
-      }
-
+        transform: scale(1);
     }
+}
 
 
-    /* =================================
-       POPUP CARD
-    ================================= */
+/* =========================
+   CLOSE BUTTON
+========================= */
 
-    .popup {
+.close {
 
-      position: relative;
+    position: absolute;
 
-      width: min(330px, 85vw);
+    top: 10px;
+    right: 14px;
 
-      min-height: 220px;
+    width: 30px;
+    height: 30px;
 
-      padding: 35px 25px;
+    border: none;
 
-      background:
-        rgba(255,255,255,0.95);
+    background: rgba(90,160,220,.12);
 
-      border-radius: 25px;
+    color: #5798ce;
 
-      text-align: center;
+    border-radius: 50%;
 
-      box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.2);
+    font-size: 20px;
 
-      animation:
-        popup 0.5s cubic-bezier(.17,.67,.35,1.4);
-    }
+    line-height: 30px;
+
+    cursor: pointer;
+
+    z-index: 200;
+
+    transition: .2s;
+}
+
+.close:hover {
+
+    background: #5798ce;
+
+    color: white;
+
+    transform: rotate(90deg);
+}
 
 
-    @keyframes popup {
+/* =========================
+   FALLING LOVE MESSAGES
+========================= */
 
-      from {
+.love-rain {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.love-message {
+
+    position: absolute;
+
+    top: -30px;
+
+    white-space: nowrap;
+
+    font-family:
+        "Trebuchet MS",
+        sans-serif;
+
+    font-size: 11px;
+
+    color: #76aee0;
+
+    opacity: .9;
+
+    animation:
+        loveFall linear forwards;
+}
+
+@keyframes loveFall {
+
+    from {
+        transform:
+            translateY(-40px)
+            rotate(-8deg);
 
         opacity: 0;
-
-        transform:
-          scale(0.5)
-          rotate(-5deg);
-      }
-
-      to {
-
-        opacity: 1;
-
-        transform:
-          scale(1)
-          rotate(0);
-      }
-
     }
 
+    10% {
+        opacity: 1;
+    }
 
-    .popup h2 {
+    90% {
+        opacity: .9;
+    }
 
-      color: #5da9e9;
+    to {
+        transform:
+            translateY(470px)
+            rotate(8deg);
 
-      font-family:
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   POPUP CENTER DECORATION
+========================= */
+
+.popup-title {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    color: #79aeda;
+
+    font-family:
         "Brush Script MT",
         "Segoe Script",
         cursive;
 
-      font-size: 36px;
+    font-size: 20px;
 
-      font-weight: 400;
+    opacity: .8;
 
-      margin-bottom: 8px;
+    pointer-events: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .title {
+        font-size: 42px;
     }
 
-
-    .popup p {
-
-      color: #777;
-
-      font-size: 13px;
-
-      margin-bottom: 20px;
-    }
-
-
-    /* CLOSE BUTTON */
-
-    .close {
-
-      position: absolute;
-
-      top: 12px;
-      right: 16px;
-
-      border: none;
-
-      background: transparent;
-
-      color: #aaa;
-
-      font-size: 20px;
-
-      cursor: pointer;
-    }
-
-
-    /* =================================
-       FALLING LOVE WORDS
-    ================================= */
-
-    .love-word {
-
-      position: fixed;
-
-      top: -60px;
-
-      z-index: 200;
-
-      pointer-events: none;
-
-      font-family:
-        "Trebuchet MS",
-        sans-serif;
-
-      font-weight: 600;
-
-      white-space: nowrap;
-
-      animation:
-        loveFall linear forwards;
-
-      text-shadow:
-        0 2px 5px
-        rgba(0,0,0,0.1);
-    }
-
-
-    @keyframes loveFall {
-
-      0% {
-
-        transform:
-          translateY(-70px)
-          rotate(-10deg);
-
-        opacity: 0;
-      }
-
-      10% {
-
-        opacity: 1;
-      }
-
-      90% {
-
-        opacity: 1;
-      }
-
-      100% {
-
-        transform:
-          translateY(115vh)
-          rotate(20deg);
-
-        opacity: 0;
-      }
-
-    }
-
-
-    /* =================================
-       MOBILE
-    ================================= */
-
-    @media (max-width: 600px) {
-
-      .title {
-        font-size: 38px;
-      }
-
-      .click-button {
+    .click {
         font-size: 12px;
-        padding: 8px 18px;
-      }
-
-      .standing {
-        transform: scale(0.75);
-      }
-
-      .stand2,
-      .stand3,
-      .stand4 {
-        transform: scale(0.6);
-      }
-
     }
 
-  </style>
+    .standing {
+        transform: scale(.7);
+    }
+
+    .stand2,
+    .stand3 {
+        display: none;
+    }
+
+    .popup {
+        width: 84vw;
+        height: 60vh;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =================================
-       CENTER
-  ================================= -->
+<!-- =========================
+     MAIN CONTENT
+========================= -->
 
-  <div class="center">
+<div class="main">
 
     <div class="title">
-      rebreb
+        rebreb
     </div>
 
-    <button
-      class="click-button"
-      onclick="openLove()">
-
-      click here ♡
-
-    </button>
-
-  </div>
-
-
-
-  <!-- =================================
-       FLOATING FLOWERS
-  ================================= -->
-
-  <div class="flower pink f1">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower yellow f2">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower purple f3">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower white f4">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower orange f5">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower pink f6">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower yellow f7">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-  <div class="flower purple f8">
-    <div class="petal p1"></div>
-    <div class="petal p2"></div>
-    <div class="petal p3"></div>
-    <div class="petal p4"></div>
-    <div class="petal p5"></div>
-    <div class="flower-center"></div>
-  </div>
-
-
-
-  <!-- =================================
-       STANDING FLOWER 1
-  ================================= -->
-
-  <div class="standing stand1">
-
-    <div class="flower pink">
-
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="petal p5"></div>
-
-      <div class="flower-center"></div>
-
+    <div
+        class="click"
+        onclick="openPopup()"
+    >
+        click here
     </div>
 
-    <div class="stem"></div>
+</div>
 
-    <div class="leaf leaf-left"></div>
-    <div class="leaf leaf-right"></div>
 
-  </div>
+<!-- =========================
+     FLOATING FLOWERS
+========================= -->
 
+<div class="flower pink f1">
 
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
-  <!-- =================================
-       STANDING FLOWER 2
-  ================================= -->
+    <div class="flower-center"></div>
 
-  <div class="standing stand2">
+</div>
 
-    <div class="flower yellow">
 
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="petal p5"></div>
+<div class="flower yellow f2">
 
-      <div class="flower-center"></div>
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
-    </div>
+    <div class="flower-center"></div>
 
-    <div class="stem"></div>
+</div>
 
-    <div class="leaf leaf-left"></div>
-    <div class="leaf leaf-right"></div>
 
-  </div>
+<div class="flower purple f3">
 
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
+    <div class="flower-center"></div>
 
-  <!-- =================================
-       STANDING FLOWER 3
-  ================================= -->
+</div>
 
-  <div class="standing stand3">
 
-    <div class="flower purple">
+<div class="flower white f4">
 
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="petal p5"></div>
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
-      <div class="flower-center"></div>
+    <div class="flower-center"></div>
 
-    </div>
+</div>
 
-    <div class="stem"></div>
 
-    <div class="leaf leaf-left"></div>
+<div class="flower orange f5">
 
-  </div>
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
+    <div class="flower-center"></div>
 
+</div>
 
-  <!-- =================================
-       STANDING FLOWER 4
-  ================================= -->
 
-  <div class="standing stand4">
+<div class="flower pink f6">
 
-    <div class="flower white">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="petal p5"></div>
+    <div class="flower-center"></div>
 
-      <div class="flower-center"></div>
+</div>
 
-    </div>
 
-    <div class="stem"></div>
+<div class="flower yellow f7">
 
-    <div class="leaf leaf-right"></div>
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
-  </div>
+    <div class="flower-center"></div>
 
+</div>
 
 
-  <!-- =================================
-       SPARKLES
-  ================================= -->
+<div class="flower purple f8">
 
-  <div class="sparkle s1">✦</div>
-  <div class="sparkle s2">✧</div>
-  <div class="sparkle s3">✦</div>
-  <div class="sparkle s4">✧</div>
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
 
+    <div class="flower-center"></div>
 
+</div>
 
-  <!-- =================================
-       POPUP
-  ================================= -->
 
-  <div
-    class="popup-container"
-    id="popup">
+<!-- =========================
+     STANDING FLOWER 1
+========================= -->
 
-    <div class="popup">
+<div class="standing stand1">
 
-      <button
-        class="close"
-        onclick="closeLove()">
-
-        ×
-
-      </button>
-
-      <h2>for rebreb ♡</h2>
-
-      <p>
-        I have something to tell you...
-      </p>
-
-      <div style="font-size: 28px;">
-        🌸 💗 🌷
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- =================================
-       JAVASCRIPT
-  ================================= -->
-
-  <script>
-
-
-    /* ================================
-       RANDOM FLOWER CONFETTI
-    ================================= */
-
-    const flowerColors = [
-      "pink",
-      "yellow",
-      "purple",
-      "white",
-      "orange",
-      "blue"
-    ];
-
-
-    function createFlowerConfetti() {
-
-      const flower =
-        document.createElement("div");
-
-      flower.classList.add(
-        "flower",
-        "falling-flower"
-      );
-
-
-      const randomColor =
-        flowerColors[
-          Math.floor(
-            Math.random() *
-            flowerColors.length
-          )
-        ];
-
-
-      flower.classList.add(randomColor);
-
-
-      flower.innerHTML = `
+    <div class="standing-flower pink">
 
         <div class="petal p1"></div>
         <div class="petal p2"></div>
@@ -1058,255 +838,383 @@
 
         <div class="flower-center"></div>
 
-      `;
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="leaf leaf-left"></div>
+    <div class="leaf leaf-right"></div>
+
+</div>
 
 
-      flower.style.left =
-        Math.random() * 100 + "vw";
+<!-- =========================
+     STANDING FLOWER 2
+========================= -->
+
+<div class="standing stand2">
+
+    <div class="standing-flower yellow">
+
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+
+        <div class="flower-center"></div>
+
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="leaf leaf-left"></div>
+
+</div>
 
 
-      const size =
-        0.35 +
-        Math.random() * 0.7;
+<!-- =========================
+     STANDING FLOWER 3
+========================= -->
+
+<div class="standing stand3">
+
+    <div class="standing-flower purple">
+
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+
+        <div class="flower-center"></div>
+
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="leaf leaf-right"></div>
+
+</div>
 
 
-      flower.style.transform =
-        `scale(${size})`;
+<!-- =========================
+     STANDING FLOWER 4
+========================= -->
+
+<div class="standing stand4">
+
+    <div class="standing-flower white">
+
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+
+        <div class="flower-center"></div>
+
+    </div>
+
+    <div class="stem"></div>
+
+    <div class="leaf leaf-left"></div>
+    <div class="leaf leaf-right"></div>
+
+</div>
 
 
-      flower.style.animationDuration =
-        (5 + Math.random() * 7) + "s";
+<!-- =========================
+     SPARKLES
+========================= -->
+
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">✦</div>
+<div class="sparkle s4">✧</div>
 
 
-      flower.style.animationDelay =
-        Math.random() * 4 + "s";
+<!-- =========================
+     FLOWER CONFETTI
+========================= -->
 
+<script>
 
-      document.body.appendChild(flower);
+const flowerSymbols = [
+    "✿",
+    "❀",
+    "✾",
+    "❁",
+    "🌸",
+    "🌼"
+];
 
+const flowerColors = [
+    "#ffffff",
+    "#ffd1df",
+    "#ffe88a",
+    "#e1ccff",
+    "#ffb997"
+];
 
-      setTimeout(() => {
+for (let i = 0; i < 45; i++) {
 
-        flower.remove();
-
-      }, 13000);
-
-    }
-
-
-    /* Keep creating flowers */
-
-    setInterval(
-      createFlowerConfetti,
-      450
-    );
-
-
-    /* Initial flowers */
-
-    for (let i = 0; i < 18; i++) {
-
-      setTimeout(
-        createFlowerConfetti,
-        i * 200
-      );
-
-    }
-
-
-
-    /* ================================
-       OPEN POPUP
-    ================================= */
-
-    function openLove() {
-
-      document
-        .getElementById("popup")
-        .classList.add("show");
-
-
-      /* Start falling love messages */
-
-      startLoveRain();
-
-    }
-
-
-
-    /* ================================
-       CLOSE POPUP
-    ================================= */
-
-    function closeLove() {
-
-      document
-        .getElementById("popup")
-        .classList.remove("show");
-
-    }
-
-
-
-    /* ================================
-       LOVE WORDS
-    ================================= */
-
-    const loveWords = [
-
-      "i love you ♡",
-      "i love you more",
-      "love you",
-      "love you more",
-      "i miss you ♡",
-      "miss you",
-      "always you",
-      "my favorite",
-      "you & me",
-      "more than you know",
-      "♡ i love you ♡",
-      "still you",
-      "only you",
-      "you are special",
-      "hehe i love you",
-      "lovelovelove",
-      "i choose you",
-      "always ♡",
-      "mwah",
-      "kiss kiss",
-      "take care",
-      "stay with me",
-      "you're my favorite",
-      "i adore you",
-      "so much love",
-      "more more more",
-      "i love you, okay?",
-      "♡",
-      "🌸",
-      "💗",
-      "🌷"
-
-    ];
-
-
-    const loveColors = [
-
-      "#ff6f91",
-      "#ff8fab",
-      "#d66efd",
-      "#5da9e9",
-      "#ff9f68",
-      "#e85d9e"
-
-    ];
-
-
-
-    /* ================================
-       CREATE FALLING WORD
-    ================================= */
-
-    function createLoveWord() {
-
-      const word =
+    const flower =
         document.createElement("div");
 
+    flower.className = "mini-flower";
 
-      word.classList.add(
-        "love-word"
-      );
+    flower.innerText =
+        flowerSymbols[
+            Math.floor(
+                Math.random() *
+                flowerSymbols.length
+            )
+        ];
+
+    flower.style.left =
+        Math.random() * 100 + "vw";
+
+    flower.style.color =
+        flowerColors[
+            Math.floor(
+                Math.random() *
+                flowerColors.length
+            )
+        ];
+
+    flower.style.fontSize =
+        (9 + Math.random() * 10) + "px";
+
+    flower.style.animationDuration =
+        (5 + Math.random() * 8) + "s";
+
+    flower.style.animationDelay =
+        (-Math.random() * 10) + "s";
+
+    document.body.appendChild(flower);
+}
 
 
-      word.textContent =
-        loveWords[
-          Math.floor(
-            Math.random() *
-            loveWords.length
-          )
+/* =========================
+   POPUP
+========================= */
+
+function openPopup() {
+
+    const overlay =
+        document.getElementById("popupOverlay");
+
+    overlay.style.display = "flex";
+
+    startLoveRain();
+}
+
+
+function closePopup() {
+
+    const overlay =
+        document.getElementById("popupOverlay");
+
+    overlay.style.display = "none";
+
+
+    /* Stop all falling messages */
+
+    const rain =
+        document.getElementById("loveRain");
+
+    rain.innerHTML = "";
+
+
+    /* Stop the interval */
+
+    clearInterval(loveInterval);
+
+    loveInterval = null;
+}
+
+
+/* =========================
+   LOVE MESSAGE RAIN
+========================= */
+
+const messages = [
+
+    "i love you",
+    "i love you more",
+    "pretty",
+    "i love you ♡",
+    "i love you more ♡",
+    "pretty pretty",
+    "i love you",
+    "pretty ♡"
+
+];
+
+let loveInterval = null;
+
+
+function createLoveMessage() {
+
+    const rain =
+        document.getElementById("loveRain");
+
+    const message =
+        document.createElement("div");
+
+    message.className =
+        "love-message";
+
+
+    /* Random message */
+
+    message.innerText =
+        messages[
+            Math.floor(
+                Math.random() *
+                messages.length
+            )
         ];
 
 
-      word.style.left =
-        Math.random() * 95 + "vw";
+    /* Random position */
+
+    message.style.left =
+        Math.random() * 90 + "%";
 
 
-      word.style.fontSize =
-        (12 + Math.random() * 9)
-        + "px";
+    /* Random falling speed */
+
+    message.style.animationDuration =
+        (3 + Math.random() * 3) + "s";
 
 
-      word.style.color =
-        loveColors[
-          Math.floor(
-            Math.random() *
-            loveColors.length
-          )
+    /* Random font size */
+
+    message.style.fontSize =
+        (9 + Math.random() * 5) + "px";
+
+
+    /* Slight random color */
+
+    const colors = [
+        "#76aee0",
+        "#e59ab3",
+        "#a991d1",
+        "#91bce0"
+    ];
+
+    message.style.color =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
         ];
 
 
-      word.style.animationDuration =
-        (4 + Math.random() * 5)
-        + "s";
+    rain.appendChild(message);
 
 
-      word.style.animationDelay =
-        (Math.random() * 0.5)
-        + "s";
+    /* Remove after animation */
+
+    setTimeout(() => {
+
+        message.remove();
+
+    }, 6500);
+
+}
 
 
-      document.body.appendChild(word);
+function startLoveRain() {
 
+    /* Prevent duplicate intervals */
 
-      setTimeout(() => {
-
-        word.remove();
-
-      }, 10000);
-
-    }
-
-
-
-    /* ================================
-       LOVE RAIN
-    ================================= */
-
-    let loveRainStarted = false;
-
-
-    function startLoveRain() {
-
-      if (loveRainStarted) {
+    if (loveInterval !== null) {
         return;
-      }
+    }
 
 
-      loveRainStarted = true;
+    /* Initial messages */
 
+    for (let i = 0; i < 12; i++) {
 
-      /* First burst */
+        setTimeout(() => {
 
-      for (let i = 0; i < 35; i++) {
+            createLoveMessage();
 
-        setTimeout(
-          createLoveWord,
-          i * 100
-        );
-
-      }
-
-
-      /* Continuous falling words */
-
-      setInterval(
-        createLoveWord,
-        280
-      );
+        }, i * 100);
 
     }
 
 
-  </script>
+    /* Continue falling */
+
+    loveInterval =
+        setInterval(() => {
+
+            createLoveMessage();
+
+        }, 180);
+
+}
+
+
+/* =========================
+   CLOSE WHEN CLICKING OUTSIDE
+========================= */
+
+document
+    .getElementById("popupOverlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closePopup();
+
+        }
+
+    });
+
+</script>
+
+
+<!-- =========================
+     POPUP HTML
+========================= -->
+
+<div
+    class="popup-overlay"
+    id="popupOverlay"
+>
+
+    <div class="popup">
+
+        <button
+            class="close"
+            onclick="closePopup()"
+        >
+            ×
+        </button>
+
+
+        <div
+            class="love-rain"
+            id="loveRain"
+        >
+        </div>
+
+
+        <div class="popup-title">
+            ♡
+        </div>
+
+    </div>
+
+</div>
+
 
 </body>
-    </html>
+  </html>
